@@ -1,0 +1,88 @@
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{nord-cv}
+
+% Configure page margins with geometry
+\geometry{left=2.0cm, top=0.5cm, right=2.0cm, bottom=1.5cm, footskip=.5cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+\colorlet{primary-1}{green}
+\colorlet{primary-2}{green}
+% Uncomment if you would like to specify your own color
+% \definecolor{nord}{HTML}{CA63A8}
+
+% Set false if you don't want to highlight section with nord color
+%\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\makeatletter
+\patchcmd{\@sectioncolor}{\color}{\mdseries\color}{}{}
+\makeatother
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[rectangle,edge,right]{profile}
+\name{Gray}{Reid}
+\position{Computational Modeling and Machine Learning}
+% \address{address}
+
+\email{gray.d.reid@gmail.com}
+\mobile{(672) 999-9690}
+\researchgate{Gray-Reid-2}
+\linkedin{gray-reid-586567274}
+%\github{gdreid}
+%\homepage{laplace.physics.ubc.ca/People/gdreid/}
+
+% use vertical separator?
+%\toggletrue{separatorline}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+\pagecolor{white}
+
+% Print the header with above personal information
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[C]
+\vspace{-5mm}
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% \makecvfooter
+%   {\today}
+%   {Gray Reid}
+%   {\thepage}
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+
+\begin{cvmulticolumn}{0.45}
+
+    \input{resume/skills.tex}
+    \input{resume/education.tex}
+    \input{resume/awards.tex}
+
+    \cvnewcolumn{0.50}
+    \updateEntryFractions{0.8}{0.2}
+
+    \input{resume/profile.tex}
+    \input{resume/publications.tex}
+    \input{resume/references.tex}
+\end{cvmulticolumn}
+
+%\input{resume/highlights.tex}
+%\input{resume/references.tex}
+
+%-------------------------------------------------------------------------------
+\end{document}
