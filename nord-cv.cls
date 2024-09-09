@@ -272,6 +272,13 @@
   BoldItalicFont=*-MediumItalic,
 ]{Roboto}
 
+\newfontfamily\iconfont{icomoon}[
+    Path = fonts/,
+    Extension = .ttf,
+    UprightFont = *
+]
+\newcommand{\leetcodeicon}{{\iconfont\symbol{"E900}}} % leetcode icon
+
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
@@ -393,8 +400,12 @@
 % Usage: \linkedin{<linked-in-nick>}
 \newcommand*{\linkedin}[1]{\def\@linkedin{#1}}
 
+% Defines writer's twitter (optional)
 % Usage: \twitter{<twitter handle>}
 \newcommand*{\twitter}[1]{\def\@twitter{#1}}
+
+% usage: \leetcode{<leetcode handle>}
+\newcommand*{\leetcode}[1]{\def\@leetcode{#1}}
 
 % Defines writer's skype (optional)
 % Usage: \skype{<skype account>}
@@ -414,7 +425,6 @@
 % Usage: \xing{<xing name>}
 \newcommand*{\xing}[1]{\def\@xing{#1}}
 
-% Defines writer's twitter (optional)
 % Defines writer's extra informations (optional)
 % Usage: \extrainfo{<extra informations>}
 \newcommand*{\extrainfo}[1]{\def\@extrainfo{#1}}
@@ -519,6 +529,13 @@
       {%
         \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
         \href{https://www.researchgate.net/profile/\@researchgate}{\color{primary-1}\headericonstyle{\aiResearchGate}  \acvHeaderIconSep\color{text}\@researchgate}%
+      }%
+      %
+      \ifthenelse{\isundefined{\@leetcode}}%
+      {}%
+      {%
+        \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+        \href{https://leetcode.com/u/\@leetcode}{\color{primary-1} \headericonstyle{\leetcodeicon} \acvHeaderIconSep\color{text}\@leetcode}%
       }%
       %
       \ifthenelse{\isundefined{\@email}}%
