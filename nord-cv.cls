@@ -717,6 +717,22 @@
 }
 
 % Define an entry of cv information
+% Usage: \cventryone{<title>}{<location>}{<position>}{<date>}{<description>}
+\newcommand*{\cventryfive}[5]{%
+  %\vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\entryfracL\textwidth} R{\entryfracR\textwidth}}
+    \entrytitlestyle{#1} & \entrylocationstyle{#2} \\
+    \descriptionstyle{#3} & \entrydatestyle{#4}
+    \ifempty{#5}{\\}{
+      \\
+      \multicolumn{2}{L{\textwidth}}{\justifying\descriptionstyle{#5}} \\
+    }
+  \end{tabular*}%
+}
+
+% Define an entry of cv information
 % Usage: \cventryone{<description>}
 \newcommand*{\cventryfour}[1]{%
   %\vspace{-2.0mm}
